@@ -95,7 +95,6 @@ export default eventHandler(async (event: H3Event) => {
     throw createError({
       statusCode: 401,
       message: `Google login failed: ${query.error || 'Unknown error'}`,
-      data: query,
     })
   }
 
@@ -103,7 +102,6 @@ export default eventHandler(async (event: H3Event) => {
     throw createError({
       statusCode: 500,
       message: 'Missing Google client ID or secret',
-      data: config,
     })
   }
 
@@ -168,7 +166,6 @@ export default eventHandler(async (event: H3Event) => {
     throw createError({
       statusCode: 500,
       message: 'Failed to get access token',
-      data: token,
     })
   }
 
@@ -187,7 +184,6 @@ export default eventHandler(async (event: H3Event) => {
     throw createError({
       statusCode: 500,
       message: 'Could not get Google user email',
-      data: user,
     })
   }
 
