@@ -86,7 +86,6 @@ export default eventHandler(async (event: H3Event) => {
     throw createError({
       statusCode: 401,
       message: `GitHub login failed: ${query.error || 'Unknown error'}`,
-      data: query,
     })
   }
 
@@ -94,7 +93,6 @@ export default eventHandler(async (event: H3Event) => {
     throw createError({
       statusCode: 500,
       message: 'Missing GitHub client ID or secret',
-      data: config,
     })
   }
 
@@ -154,7 +152,6 @@ export default eventHandler(async (event: H3Event) => {
     throw createError({
       statusCode: 500,
       message: 'Failed to get access token',
-      data: token,
     })
   }
 
@@ -181,7 +178,6 @@ export default eventHandler(async (event: H3Event) => {
       throw createError({
         statusCode: 500,
         message: 'Could not get GitHub user email',
-        data: token,
       })
     }
     user.email = primaryEmail.email

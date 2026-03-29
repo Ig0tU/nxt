@@ -55,7 +55,6 @@ export default eventHandler(async (event: H3Event) => {
     throw createError({
       statusCode: 401,
       message: `SSO login failed: ${query.error_description || query.error || 'Unknown error'}`,
-      data: query,
     })
   }
 
@@ -63,7 +62,6 @@ export default eventHandler(async (event: H3Event) => {
     throw createError({
       statusCode: 500,
       message: 'Missing SSO server URL, client ID, or client secret. Set STUDIO_SSO_URL, STUDIO_SSO_CLIENT_ID, and STUDIO_SSO_CLIENT_SECRET environment variables.',
-      data: config,
     })
   }
 
@@ -121,7 +119,6 @@ export default eventHandler(async (event: H3Event) => {
     throw createError({
       statusCode: 500,
       message: `Failed to get access token: ${token.error_description || token.error || 'Unknown error'}`,
-      data: token,
     })
   }
 
@@ -139,7 +136,6 @@ export default eventHandler(async (event: H3Event) => {
     throw createError({
       statusCode: 500,
       message: 'Could not get user email from SSO server',
-      data: user,
     })
   }
 
